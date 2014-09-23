@@ -13,5 +13,11 @@ import javax.swing.JPanel;
  * @author aaronmonick
  */
 public class DrawingBoard extends JPanel {
+    myMenu menu;
+   
+    public DrawingBoard(){
+        super();
+        menu = new myMenu();
+    } 
     
 }
