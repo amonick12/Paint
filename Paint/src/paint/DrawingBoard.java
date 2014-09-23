@@ -6,18 +6,12 @@
 
 package paint;
 
+import javax.swing.JPanel;
+
 /**
  *
  * @author aaronmonick
  */
-public class Paint {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-
-           myJFrame mjf = new myJFrame();
-    }
+public class DrawingBoard extends JPanel {
     
 }
