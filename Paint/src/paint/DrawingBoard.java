@@ -76,28 +76,28 @@ public class DrawingBoard extends JPanel implements MouseMotionListener, ActionL
                 int[] yPoints = new int[3];
                 if (size == 5) {
                     xPoints[0] = x;
-                    xPoints[1] = x+3;
-                    xPoints[2] = x-3;
+                    xPoints[1] = x-50;
+                    xPoints[2] = x-50;
                     yPoints[0] = y;
-                    xPoints[1] = y+5;
-                    yPoints[2] = y-5;
+                    xPoints[1] = y+25;
+                    yPoints[2] = y-25;
                     gr.drawPolygon(xPoints, yPoints, 3);
                 } else if (size == 15){
                     xPoints[0] = x;
-                    xPoints[1] = x+8;
-                    xPoints[2] = x-8;
+                    xPoints[1] = x-150;
+                    xPoints[2] = x-150;
                     yPoints[0] = y;
-                    xPoints[1] = y+15;
-                    yPoints[2] = y-15;
+                    xPoints[1] = y+75;
+                    yPoints[2] = y-75;
                     gr.drawPolygon(xPoints, yPoints, 3);
                 }
                 else if(size == 30){
                     xPoints[0] = x;
-                    xPoints[1] = x+16;
-                    xPoints[2] = x-16;
+                    xPoints[1] = x-300;
+                    xPoints[2] = x-300;
                     yPoints[0] = y;
-                    xPoints[1] = y+30;
-                    yPoints[2] = y-30; 
+                    xPoints[1] = y+150;
+                    yPoints[2] = y-150; 
                     gr.drawPolygon(xPoints, yPoints, 3);
                 }  break;
         }
