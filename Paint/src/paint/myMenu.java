@@ -21,7 +21,7 @@ import javax.swing.JSlider;
 public class myMenu extends JPanel implements ActionListener {
     
     JButton eraserButton;
-    boolean eraser;
+    public boolean eraser;
     JButton clearButton;
     //int index = 0;
     //combo boxes
@@ -29,9 +29,9 @@ public class myMenu extends JPanel implements ActionListener {
     JComboBox colors;
     JComboBox sizes;
     //properties
-    Color color;
-    int size;
-    String shape;
+    public Color color;
+    public int size;
+    public String shape;
     //sizes
     int smallSize = 5;
     int mediumSize = 15;
@@ -65,65 +65,21 @@ public class myMenu extends JPanel implements ActionListener {
         
         shapes = new JComboBox(shapeArray);
         shapes.setSelectedIndex(0);
-        shapes.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                    JComboBox jcmbType = (JComboBox) e.getSource();
-                    shape = (String) jcmbType.getSelectedItem();	
-            }
-        });
+        shapes.addActionListener(this);
         add(shapes);
         
         colors = new JComboBox(colorArray);
         colors.setSelectedIndex(0);
-        colors.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                    JComboBox jcmbType = (JComboBox) e.getSource();
-                    String colorName = (String) jcmbType.getSelectedItem();
-                    if (colorName == "black") { color = Color.BLACK; }
-                    if (colorName == "blue") { color = Color.BLUE; }
-                    if (colorName == "red") { color = Color.RED; }
-                    if (colorName == "green") { color = Color.GREEN; }
-            }
-        });
+        colors.addActionListener(this);
         add(colors);
         
         sizes = new JComboBox(sizeArray);
         sizes.setSelectedIndex(0);
-        sizes.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                    JComboBox jcmbType = (JComboBox) e.getSource();
-                    String sizeName = (String) jcmbType.getSelectedItem();	
-                    if (sizeName == "small") { size = smallSize; }
-                    if (sizeName == "medium") { size = mediumSize; }
-                    if (sizeName == "large") { size = largeSize; }
-            }
-        });
+        sizes.addActionListener(this);
         add(sizes);
 
 
         
-    }
-    
-    public boolean checkEraser() {
-        return eraser;
-    }
-    
-    public String getShape() {
-        return shape;
-    }
-    
-    public Color getColor() { 
-        return color;
-    }
-    
-    public int getShapeSize() {
-        return size;
     }
 
     @Override
@@ -135,7 +91,46 @@ public class myMenu extends JPanel implements ActionListener {
             } else {
                 eraser = false;
             }
-        }
+            
+        } else if (obj == sizes) {
+            JComboBox sizeBox = (JComboBox) e.getSource();
+            String sizeName = (String) sizeBox.getSelectedItem();            
+            if (sizeName == "small") { 
+                size = smallSize;   
+                System.out.println("Size: "+size);
+            } else if (sizeName == "medium") {
+                size = mediumSize;        
+                System.out.println("Size: "+size);
+            } else if (sizeName == "large") { 
+                size = largeSize;         
+                System.out.println("Size: "+size);
+            }
+            
+        } else if (obj == shapes) {
+            JComboBox shapesBox = (JComboBox) e.getSource();
+            String shapeName = (String) shapesBox.getSelectedItem(); 
+            System.out.println("Shape: "+shapeName);
+            
+        } else if (obj == colors) {
+            JComboBox colorsBox = (JComboBox) e.getSource();
+            String colorName = (String) colorsBox.getSelectedItem();
+            if (colorName == "black") { 
+                color = Color.BLACK; 
+                System.out.println("Color: "+color);
+            }
+            if (colorName == "blue") { 
+                color = Color.BLUE; 
+                System.out.println("Color: "+color);
+            }
+            if (colorName == "red") { 
+                color = Color.RED;                     
+                System.out.println("Color: "+color);
+            }
+            if (colorName == "green") { 
+                color = Color.GREEN;         
+                System.out.println("Color: "+color);
+            }
+        } 
         
     }
     
