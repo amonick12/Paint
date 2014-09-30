@@ -32,7 +32,6 @@ public class DrawingBoard extends JPanel implements MouseMotionListener, ActionL
         setBackground(Color.white);
         setVisible(true);
         addMouseMotionListener(this);
-        menu = new myMenu();
         menu.clearButton.addActionListener(this);
     } 
 
